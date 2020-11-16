@@ -59,35 +59,58 @@ namespace Properties_Demo
         //}
 
         private int _age;
+        private string MyProperty { get; }
 
-        public int Age
+        private string _bankCard;
+
+        public string BankCard
         {
             get 
-            { 
-                return _age; 
+            {
+                string output = "*********" + _bankCard.Substring(_bankCard.Length - 4);
+               
+                return output; 
             }
             set 
-            {
-                if (value > 20)
-                {
-                    _age = value;
-                }
-                else
-                {
-                    Console.WriteLine("Invalid age");
-                }
+            { 
+                _bankCard = value; 
             }
         }
+
+
+        //public int Age
+        //{
+        //    get 
+        //    { 
+        //        return _age; 
+        //    }
+        //    set 
+        //    {
+        //        if (value > 20)
+        //        {
+        //            _age = value;
+        //        }
+        //        else
+        //        {
+        //            Console.WriteLine("Invalid age");
+        //        }
+        //    }
+        //}
     }
         class Program
         {
             static void Main(string[] args)
             {
-            //Student student = new Student();
+            Student student = new Student();
             //student.SetName(" ");
             //Console.WriteLine(student.GetName(""));
-            Student student = new Student() ;
-            student.Age = 15;
+
+            //Student student = new Student() ;
+            //student.Age = 15;
+
+            Console.WriteLine("Give your Banc Card in");
+            student.BankCard = Console.ReadLine();
+            Console.WriteLine($"Your Banc Card number {student.BankCard}");
             }
         }
 }
